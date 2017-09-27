@@ -13,6 +13,7 @@
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
+        "codeclimate/php-test-reporter": "^0.4.4",
         "phpunit/phpunit": "^6.3"
     },
     "autoload": {
@@ -24,5 +25,8 @@
         "psr-4": {
             "McMatters\\Packagist\\Tests\\": "tests"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
