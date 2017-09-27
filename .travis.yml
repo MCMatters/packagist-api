@@ -1,0 +1,20 @@
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+
+addons:
+  code_climate:
+    repo_token: 3d0b7241b9af8c9206b85a8281d8de79c065cd509303f6a7dfec2c12e420e839
+
+install: composer install --no-interaction --prefer-dist --no-suggest --ignore-platform-reqs --optimize-autoloader
+
+script: vendor/bin/phpunit
+
+after_success: vendor/bin/test-reporter
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
