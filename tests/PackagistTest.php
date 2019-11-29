@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 class PackagistTest extends TestCase
 {
     /**
-     * @var Packagist
+     * @var \McMatters\Packagist\Packagist
      */
     protected $packagist;
 
@@ -38,7 +38,7 @@ class PackagistTest extends TestCase
     /**
      * PackagistTest constructor.
      *
-     * @param null $name
+     * @param string|null $name
      * @param array $data
      * @param string $dataName
      */
@@ -59,7 +59,7 @@ class PackagistTest extends TestCase
 
         $this->assertArrayHasKey('packageNames', $list);
         $this->assertNotEmpty($list['packageNames']);
-        $this->assertTrue(in_array($this->package, $list['packageNames'], true));
+        $this->assertContains($this->package, $list['packageNames']);
     }
 
     /**
@@ -70,7 +70,7 @@ class PackagistTest extends TestCase
         $packages = $this->packagist->listPackagesByOrganization($this->vendor);
         $this->assertArrayHasKey('packageNames', $packages);
         $this->assertNotEmpty($packages['packageNames']);
-        $this->assertTrue(in_array($this->package, $packages['packageNames'], true));
+        $this->assertContains($this->package, $packages['packageNames']);
     }
 
     /**
@@ -81,7 +81,7 @@ class PackagistTest extends TestCase
         $packages = $this->packagist->listPackagesByType('library');
         $this->assertArrayHasKey('packageNames', $packages);
         $this->assertNotEmpty($packages['packageNames']);
-        $this->assertTrue(in_array($this->package, $packages['packageNames'], true));
+        $this->assertContains($this->package, $packages['packageNames']);
     }
 
     /**
